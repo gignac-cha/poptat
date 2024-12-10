@@ -1,21 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <link rel="href" href="sources/style.scss" /> -->
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css" />
+    <style>
+      html,
+      body,
+      :root {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #111;
+      }
+      * {
+        font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Pretendard Variable', Pretendard, Roboto, 'Noto Sans KR', 'Segoe UI',
+          'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+      }
+      pre,
+      code {
+        font-family: 'Fira Code', monospace;
+      }
+      @supports (font-variation-settings: normal) {
+        pre,
+        code {
+          font-family: 'Fira Code VF', monospace;
+        }
+      }
+    </style>
   </head>
   <body>
-    <section style="display: flex; flex-direction: column; row-gap: 1rem">
-      <section style="position: relative">
+    <section style="margin: auto; display: flex; flex-direction: column; row-gap: 0.2rem; max-width: 60rem; height: 100%">
+      <section style="padding: 1rem 0">
         <input id="search-query" />
-        <section
-          style="position: absolute; opacity: 0; transition: opacity 0.2s"
-        >
-          <ul id="search-list"></ul>
+      </section>
+      <section style="position: relative">
+        <section id="search-list-container" style="position: absolute; opacity: 0; transition: opacity 0.2s">
+          <section
+            id="search-list"
+            style="display: flex; flex-direction: column; row-gap: 0.2rem; max-height: 40rem; background-color: white; border-radius: 3px; overflow-y: scroll"
+          ></section>
         </section>
       </section>
-      <section>
-        <canvas id="canvas" style="width: 100%; height: 100%"></canvas>
+      <section style="height: 100%; overflow-y: scroll">
+        <canvas id="canvas" style="width: 100%"></canvas>
       </section>
     </section>
     <script type="module" src="sources/script.ts"></script>
